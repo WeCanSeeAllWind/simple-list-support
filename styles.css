@@ -1,0 +1,76 @@
+/* REVIEWED: 기존 Simple List의 읽기 화면·명암·여백을 웹 문서에 적용한다. */
+:root {
+  color-scheme: light;
+  --background: #f4f5f7;
+  --surface: #fafafb;
+  --ink: #282b30;
+  --muted: #636872;
+  --action: #465e76;
+  --on-action: #fafafb;
+  --line: #d9dde2;
+  --selection: #e5ebf1;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 100%;
+  scrollbar-color: var(--action) var(--background);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --background: #181b20;
+    --surface: #24282f;
+    --ink: #eceef1;
+    --muted: #b9bec8;
+    --action: #b8cde2;
+    --on-action: #181b20;
+    --line: #424852;
+    --selection: #323e4c;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --background: #181b20;
+  --surface: #24282f;
+  --ink: #eceef1;
+  --muted: #b9bec8;
+  --action: #b8cde2;
+  --on-action: #181b20;
+  --line: #424852;
+  --selection: #323e4c;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--background); color: var(--ink); font-size: 1.0625rem; line-height: 1.75; }
+::selection { background: var(--selection); color: var(--ink); }
+a { color: var(--action); text-underline-offset: .22em; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--action); outline-offset: 4px; }
+header, main, footer { width: min(100% - 3rem, 70ch); margin-inline: auto; }
+header { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem 1.5rem; padding-block: 1.25rem; border-bottom: 1px solid var(--line); }
+.brand { font-size: 1.25rem; font-weight: 650; color: var(--ink); text-decoration: none; margin-inline-end: auto; }
+nav { display: flex; flex-wrap: wrap; gap: .125rem .75rem; }
+header a, .contents a, .service-links a { display: inline-flex; min-height: 44px; align-items: center; }
+header a { text-decoration: none; }
+header [aria-current] { text-decoration: underline; font-weight: 600; }
+.languages { width: 100%; }
+main { padding-block: 2.5rem 4rem; }
+h1 { font-size: clamp(2rem, 1.65rem + 1vw, 2.5rem); line-height: 1.3; letter-spacing: -.02em; margin: 0 0 1rem; font-weight: 650; }
+h2 { font-size: 1.25rem; line-height: 1.5; margin: 3rem 0 .5rem; font-weight: 650; scroll-margin-top: 1.5rem; }
+p { margin: .5rem 0 1rem; }
+.intro { margin-bottom: 1.5rem; }
+.muted { color: var(--muted); }
+.updated { font-variant-numeric: tabular-nums; }
+.contact { display: inline-flex; justify-content: center; align-items: center; min-height: 48px; padding: .625rem 1.125rem; background: var(--action); color: var(--on-action); border-radius: 8px; font-weight: 600; text-decoration: none; }
+.contact:hover { text-decoration: underline; }
+.email { overflow-wrap: anywhere; font-size: .9375rem; color: var(--muted); }
+.contents { margin-block: 1.5rem 2rem; display: grid; gap: .375rem; }
+.service-links { padding-inline-start: 1.125rem; margin-block: 2rem 0; }
+footer { padding-block: 1.5rem 2rem; border-top: 1px solid var(--line); color: var(--muted); }
+footer > p, footer > label { font-size: .9375rem; }
+footer label { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem; }
+select { min-height: 44px; font: inherit; padding: .375rem 2rem .375rem .75rem; color: var(--ink); background: var(--surface); border: 1px solid var(--line); border-radius: 8px; }
+.skip { position: absolute; inset-inline-start: 1rem; top: -10rem; padding: .75rem 1rem; background: var(--surface); z-index: 1; }
+.skip:focus { top: 1rem; }
+@media (max-width: 480px) {
+  header, main, footer { width: min(100% - 2rem, 70ch); }
+  main { padding-top: 2rem; }
+  .brand { width: 100%; }
+}
