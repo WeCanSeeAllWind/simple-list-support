@@ -1,11 +1,6 @@
-/* REVIEWED: 지원 사이트의 기존 팔레트와 읽기 흐름을 유지한다. */
-.invitation { text-align: center; max-width: 38rem; padding-block: 3rem; word-break: keep-all; overflow-wrap: anywhere; }
-.invitation h1 { font-size: clamp(1.75rem, 1.4rem + 1vw, 2.25rem); text-wrap: balance; }
-.invitation #intro { color: var(--muted); }
-.invitation #status { color: var(--muted); }
-.invitation #status:empty { display: none; }
-.invitation .contact { margin-block: .5rem 1rem; }
-.invitation [hidden] { display: none; }
-.invitation section { text-align: start; }
-.invitation section a { display: inline-flex; align-items: center; min-height: 44px; }
-.invitation #browser { font-size: .9375rem; margin-top: .5rem; }
+/* REVIEWED: 열기 한 동작만 중앙에 둔다. 링크 오류만 필요한 때 표시한다. */
+.invitation { min-height: 100svh; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 1.75rem; text-align: center; max-width: 32rem; padding-block: 3rem; word-break: keep-all; overflow-wrap: anywhere; }
+.invitation h1 { font-size: clamp(2rem, 1.65rem + 1vw, 2.5rem); margin: 0; }
+.invitation #status { color: var(--muted); margin: 0; }
+.invitation #status:empty, .invitation [hidden] { display: none; }
+.invitation .contact { min-height: 52px; padding-inline: 1.5rem; }
