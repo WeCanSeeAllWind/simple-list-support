@@ -1,0 +1,11 @@
+/* REVIEWED: 지원 사이트의 기존 팔레트와 읽기 흐름을 유지한다. */
+.invitation { text-align: center; max-width: 38rem; padding-block: 3rem; word-break: keep-all; overflow-wrap: anywhere; }
+.invitation h1 { font-size: clamp(1.75rem, 1.4rem + 1vw, 2.25rem); text-wrap: balance; }
+.invitation #intro { color: var(--muted); }
+.invitation #status { color: var(--muted); }
+.invitation #status:empty { display: none; }
+.invitation .contact { margin-block: .5rem 1rem; }
+.invitation [hidden] { display: none; }
+.invitation section { text-align: start; }
+.invitation section a { display: inline-flex; align-items: center; min-height: 44px; }
+.invitation #browser { font-size: .9375rem; margin-top: .5rem; }
